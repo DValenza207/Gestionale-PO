@@ -1,0 +1,29 @@
+<form #browseform="ngForm" (ngSubmit)="onSubmit(browseform)">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Inserire periodo della creazione del Purchase Order</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Dal" name="Start date" [(ngModel)]="details.creationDateFrom">
+      <input matEndDate placeholder="Al" name="End date" [(ngModel)]="details.creationDateTo">
+    </mat-date-range-input>
+    <mat-hint>MM/GG/AAAA – MM/GG/AAAA</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descrizione</mat-label>
+    <input matInput type="text" name="description" [(ngModel)]="details.description" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo</mat-label>
+    <input matInput type="text" name="type" [(ngModel)]="details.type" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Cerca </button>
+  <button mat-raised-button color="yellow" type="clear" (click)="browseform.reset()">Reset</button>
+  <button mat-raised-button color="green" type="add" (click)="newPO()">+</button>
+</form>
+
+
+<app-browse [details]="details">
+</app-browse>

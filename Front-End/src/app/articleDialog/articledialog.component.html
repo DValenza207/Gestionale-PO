@@ -1,0 +1,19 @@
+<form #saveupdateform="ngForm" style="display:flex; flex-direction: row; width: 100%;">
+  <mat-card class="cardc">
+    <mat-label>Identificativo: {{ data.id}}</mat-label>
+  </mat-card>
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput type="text" name="name" [(ngModel)]="data.name" required />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Descrizione</mat-label>
+    <input matInput type="text" name="description" [(ngModel)]="data.description" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Prezzo</mat-label>
+    <input matInput type="text" name="prezzo" [(ngModel)]="data.prezzo" required />
+  </mat-form-field>
+</form>
+<button mat-raised-button color="primary" [disabled]="!data.name||!data.prezzo" (click)="onSubmit()">Salva</button>
+<button mat-raised-button color="warn" (click)="closeDialog()">Annulla</button>

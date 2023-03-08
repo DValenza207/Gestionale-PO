@@ -1,0 +1,25 @@
+<form #articlebrowseform="ngForm" (ngSubmit)="onSubmit(articlebrowseform)">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="Adetails.name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Descrizione</mat-label>
+        <input matInput type="text" name="description" [(ngModel)]="Adetails.description" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Prezzo</mat-label>
+        <input matInput type="text" name="prezzo" [(ngModel)]="Adetails.prezzo" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Cerca </button>
+    <button mat-raised-button color="yellow" type="clear" (click)="articlebrowseform.reset()">Reset</button>
+    <button mat-raised-button color="green" type="add" (click)="newA()">+</button>
+
+</form>
+
+<app-browseArticles [Adetails]="Adetails">
+</app-browseArticles>

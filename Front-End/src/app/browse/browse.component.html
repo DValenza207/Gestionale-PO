@@ -1,0 +1,78 @@
+<mat-divider></mat-divider>
+
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Id Column-->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordinamento per id">Identificativo</th>
+    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+  </ng-container>
+
+  <!-- Customer Name Column-->
+  <ng-container matColumnDef="customerName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordinamento per nome del cliente">
+      Cliente</th>
+    <td mat-cell *matCellDef="let element">{{element.customerName}}</td>
+  </ng-container>
+
+  <!-- Creation Date Column -->
+  <ng-container matColumnDef="creationDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordinamento per data creazione">
+      Data Creazione </th>
+    <td mat-cell *matCellDef="let element"> {{element.creationDate}} </td>
+  </ng-container>
+
+  <!-- Description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordinamento per descrizione">
+      Descrizione </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <!-- Supplier Name Column -->
+  <ng-container matColumnDef="supplierName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordinamento per nome del fornitore">
+      Fornitore </th>
+    <td mat-cell *matCellDef="let element"> {{element.supplierName}} </td>
+  </ng-container>
+
+  <!-- Type Column -->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordinamento per tipo"> Tipo </th>
+    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+  </ng-container>
+
+  <!-- Priority Column -->
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordinamento per priorità"> Priorità
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+  </ng-container>
+
+  <!-- Budget Code Column -->
+  <ng-container matColumnDef="budgetCode">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Ordinamento per budget code">
+      Budget Code </th>
+    <td mat-cell *matCellDef="let element"> {{element.budgetCode}} </td>
+  </ng-container>
+
+  <!--Actions Column-->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let button">
+      <button mat-mini-fab color="accent" (click)="$event.stopPropagation()" (click)="deleteDialog(button.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <!--stop propagation serve a distinguere il click della row dal button-->
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row (click)="clickedRow(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+<mat-paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+  (page)="pageChanged($event)" aria-label="Seleziona pagina" showFirstLastButtons>
+</mat-paginator>

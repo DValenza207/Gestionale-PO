@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Sign In</h1>
+<form #loginform="ngForm" style="display:flex; flex-direction: column; width: 100%;">
+    <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" name="username" [(ngModel)]="data.name" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="data.password" required />
+    </mat-form-field>
+</form>
+<div style="display: flex; flex-direction: row">
+    <button mat-raised-button color="primary" style="margin-right: 10px;" [disabled]="!data.name||!data.password"
+        (click)="login(data)">Login</button>
+    <button mat-raised-button color="warn" style="margin-left: 10px;" (click)="closeDialog()">Annulla</button>
+</div>
+
+<a routerLink="registration" color="blue" (click)="closeDialog()">Registrazione</a>

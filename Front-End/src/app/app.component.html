@@ -1,0 +1,27 @@
+<div>
+    <div>
+        <mat-toolbar color="primary">
+            <div class="main">
+                <a routerLink="/" style="margin-right: 10px; margin-left: 10px"><button mat-mini-fab color="primary">
+                        <mat-icon>home</mat-icon>
+                    </button></a>
+                <a *ngIf="isLoggedIn" routerLink="purchaseOrders" style="margin-right: 10px; margin-left: 10px"
+                    color="green">Ordini
+                    d'acquisto</a>
+                <a *ngIf="isLoggedIn" routerLink="articles" style="margin-right: 10px; margin-left: 10px"
+                    color="yellow">Articoli</a>
+            </div>
+            <span class="flexExpand"></span>
+            <div>
+                <button *ngIf="!isLoggedIn" mat-raised-button color="primary" (click)="loginDialog()">Login</button>
+                <a *ngIf="isLoggedIn" class="nav-link" href="/" (click)=handleLogout()>Logout</a>
+            </div>
+        </mat-toolbar>
+    </div>
+    <div class="outlet">
+        <router-outlet></router-outlet>
+    </div>
+    <div>
+        <mat-toolbar color="primary" class="footer"></mat-toolbar>
+    </div>
+</div>
