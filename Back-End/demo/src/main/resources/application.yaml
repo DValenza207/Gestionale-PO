@@ -1,0 +1,23 @@
+#devo inserire degi URL
+
+spring:
+  application:
+    name: demo
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        show_sql: false
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/demo'
+    username: 'root'
+    password: ''
+    hikari:
+      minimumIdle: 1
+      maximumPoolSize: 10
+      idleTimeout: 60000
