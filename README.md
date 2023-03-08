@@ -1,4 +1,4 @@
-Sviluppo di un'applicazione web per la gestione di ordini d'acquisto ed articoli in ambito portuale e doganale
+#Sviluppo di un'applicazione web per la gestione di ordini d'acquisto ed articoli in ambito portuale e doganale
 
 Linguaggi: Java, Typescript, SQL
 Markup: HTML, scss
